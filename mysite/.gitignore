@@ -1,3 +1,5 @@
 mysite/*.pyc
 anonymization/*.pyc
 anonymization/gmb-2.2.0
+anonymization/*train_data*
+
