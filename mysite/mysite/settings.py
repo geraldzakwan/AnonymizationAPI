@@ -105,6 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+# Set jadi japan time zone
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
