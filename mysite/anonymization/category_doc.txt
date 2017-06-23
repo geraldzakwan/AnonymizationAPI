@@ -1,0 +1,63 @@
+"""
+For --core
+Counter
+({
+    # Not a named entity (outside)
+    u'O': 1146068,
+
+    # Geographical Entity
+    u'geo': 58388,
+
+    # Organization
+    u'org': 48094,
+
+    # Person
+    u'per': 44254,
+
+    # Time Indicator
+    u'tim': 34789,
+
+    # Geopolitical Entity
+    u'gpe': 20680,
+
+    # Artifact
+    u'art': 867,
+
+    # Event
+    u'eve': 709,
+
+    # Natural Phenomenon
+    u'nat': 300
+})
+"""
+
+"""
+For --all
+Counter
+({
+        u'O': 1146068,
+        u'geo-nam': 58388,
+        u'org-nam': 48034,
+        u'per-nam': 23790,
+        u'gpe-nam': 20680,
+        u'tim-dat': 12786,
+        u'tim-dow': 11404,
+        u'per-tit': 9800,
+        u'per-fam': 8152,
+        u'tim-yoc': 5290,
+        u'tim-moy': 4262,
+        u'per-giv': 2413,
+        u'tim-clo': 891,
+        u'art-nam': 866,
+        u'eve-nam': 602,
+        u'nat-nam': 300,
+        u'tim-nam': 146,
+        u'eve-ord': 107,
+        u'per-ini': 60,
+        u'org-leg': 60,
+        u'per-ord': 38,
+        u'tim-dom': 10,
+        u'per-mid': 1,
+        u'art-add': 1
+})
+"""

@@ -1,0 +1,14 @@
+---
+Jelasin di antara perceptron, naive bayes (MultinomialNB), sama svm mana yg paling bagus
+
+Jangan dari akurasinya doang tapi juga dari nature algonya
+
+misal MultinomialNB emang paling bagus karena ngitung real occurence in word document
+
+Taro di report akurasi sama penjelasan singkat masing2 algo
+
+---
+Analysis kenapa akurasi > 90% masih jelek, yakni karena yang named entity cmn 10%
+
+---
+Keknya selain classifier harus dicoba k-anonymization atau crf/hmm supaya lebih bagus

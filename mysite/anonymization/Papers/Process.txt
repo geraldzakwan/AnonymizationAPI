@@ -1,0 +1,19 @@
+- Identify whether message is private or not
+  (
+  e.g.
+    Non-private : To get to Chofu Airport, take the Keio Railway from Shinjuku to Chofu Station.
+    Private : Yesterday, I met Yoko at Chofu Station.
+  )
+
+- Do NP-Chunking, determine the whole noun.
+Example :
+
+/noun/We/noun/ saw /noun/the yellow dog/noun/
+
+- Identify private phrases if message is private
+
+- What to dos :
+
+  1. Doing NP chunking, list all nouns
+  2. Create a classifier
+  3. Learning tree structures

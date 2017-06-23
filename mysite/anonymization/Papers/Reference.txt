@@ -1,0 +1,14 @@
+http://nlpforhackers.io/named-entity-extraction/
+
+To delete all the files except tags file : "find . \! -name 'en.tags' -delete"
+
+http://nlpforhackers.io/training-ner-large-dataset/
+
+--- Less important :
+
+http://nlpforhackers.io/training-pos-tagger/
+
+--- For later phase :
+
+a. Changing with unsimilar word
+http://nlpforhackers.io/wordnet-sentence-similarity/
