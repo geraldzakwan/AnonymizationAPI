@@ -10,7 +10,9 @@ if __name__ == "__main__":
         else:
             filename = 'NB_' + sys.argv[2] + '_train_data'
             cls = classifier.train_naive_bayes(int(sys.argv[2]), filename)
-        result = classifier.classify(cls, 'default')
+
+        text = 'Geraldi Dzakwan is a student at Bandung Institute of Technology. Geraldi Dzakwan will graduate next year.'
+        result = classifier.classify(cls, text)
         # print(result)
         # acc = classifier.calculate_accuracy(cls, 1000)
         # print(acc)
@@ -27,7 +29,9 @@ if __name__ == "__main__":
         else:
             filename = 'P_' + sys.argv[2] + '_train_data'
             cls = classifier.train_perceptron(int(sys.argv[2]), filename)
-        result = classifier.classify(cls, 'default')
+
+        text = 'Geraldi Dzakwan is a student at Bandung Institute of Technology. Geraldi Dzakwan will graduate next year.'
+        result = classifier.classify(cls, text)
         # print(result)
         # acc = classifier.calculate_accuracy(cls, 1000)
         # print(acc)

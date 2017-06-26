@@ -41,5 +41,22 @@ def restructure_list(corrected_list):
 
     return restructured_list
 
+# Accept simple list, add marks to the same word
 def coreference_resolution(restructured_list):
+    word_map = {}
+
+    for i in range(0, len(restructured_list)):
+        element = restructured_list[i]
+        element_class = element[1]
+
+        if (element_class != 'None'):
+            element_word = element[0]
+
+            # The word occurs before
+            if (element_word in word_map):
+                # Add marks that point it to the first occurence
+                restructured_list[i].append(word_map[element_word])
+            else:
+                word_map[element_word] = i
+
     return restructured_list
