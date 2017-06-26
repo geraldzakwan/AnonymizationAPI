@@ -4,4 +4,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^train$', views.train, name='train'),
+    url(r'^load$', views.load, name='load'),
+    url(r'^anonymize$', views.anonymize, name='index'),
 ]
