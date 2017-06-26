@@ -15,7 +15,11 @@ if __name__ == "__main__":
         # acc = classifier.calculate_accuracy(cls, 1000)
         # print(acc)
 
-        post_processed_list = post_processing.restructure_list(result)
+        corrected_list = post_processing.class_correction(result)
+        restructured_list = post_processing.restructure_list(corrected_list)
+        post_processed_list = post_processing.coreference_resolution(restructured_list)
+
+        print(post_processed_list)
 
     elif(sys.argv[1] == 'perceptron'):
         if(sys.argv[2] == 'load'):
@@ -28,4 +32,8 @@ if __name__ == "__main__":
         # acc = classifier.calculate_accuracy(cls, 1000)
         # print(acc)
 
-        post_processed_list = post_processing.restructure_list(result)
+        corrected_list = post_processing.class_correction(result)
+        restructured_list = post_processing.restructure_list(corrected_list)
+        post_processed_list = post_processing.coreference_resolution(restructured_list)
+
+        print(post_processed_list)
