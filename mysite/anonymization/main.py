@@ -11,7 +11,8 @@ if __name__ == "__main__":
             filename = 'NB_' + sys.argv[2] + '_train_data'
             cls = classifier.train_naive_bayes(int(sys.argv[2]), filename)
 
-        text = 'Geraldi Dzakwan is a student at Bandung Institute of Technology. Geraldi Dzakwan will graduate next year.'
+        # text = 'Geraldi Dzakwan is a student at Bandung Institute of Technology. Geraldi Dzakwan will graduate next year.'
+        text = 'Cristiano Ronaldo is a football player for Real Madrid and Portugal national team.'
         result = classifier.classify(cls, text)
         # print(result)
         # acc = classifier.calculate_accuracy(cls, 1000)
@@ -33,7 +34,8 @@ if __name__ == "__main__":
             filename = 'P_' + sys.argv[2] + '_train_data'
             cls = classifier.train_perceptron(int(sys.argv[2]), filename)
 
-        text = 'Geraldi Dzakwan is a student at Bandung Institute of Technology. Geraldi Dzakwan will graduate next year.'
+        # text = 'Geraldi Dzakwan is a student at Bandung Institute of Technology. Geraldi Dzakwan will graduate next year.'
+        text = 'Cristiano Ronaldo is a football player for Real Madrid and Portugal national team.'
         result = classifier.classify(cls, text)
         # print(result)
         # acc = classifier.calculate_accuracy(cls, 1000)
