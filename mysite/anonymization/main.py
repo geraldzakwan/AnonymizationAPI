@@ -1,5 +1,7 @@
 import sys
 import classifier
+import post_processing
+import anonymization
 
 if __name__ == "__main__":
     if(sys.argv[1] == 'naive_bayes'):
@@ -9,9 +11,12 @@ if __name__ == "__main__":
             filename = 'NB_' + sys.argv[2] + '_train_data'
             cls = classifier.train_naive_bayes(int(sys.argv[2]), filename)
         result = classifier.classify(cls, 'default')
-        print(result)
+        # print(result)
         # acc = classifier.calculate_accuracy(cls, 1000)
         # print(acc)
+
+        post_processed_list = post_processing.restructure_list(result)
+
     elif(sys.argv[1] == 'perceptron'):
         if(sys.argv[2] == 'load'):
             cls = classifier.load(sys.argv[3])
@@ -19,6 +24,8 @@ if __name__ == "__main__":
             filename = 'P_' + sys.argv[2] + '_train_data'
             cls = classifier.train_perceptron(int(sys.argv[2]), filename)
         result = classifier.classify(cls, 'default')
-        print(result)
+        # print(result)
         # acc = classifier.calculate_accuracy(cls, 1000)
         # print(acc)
+
+        post_processed_list = post_processing.restructure_list(result)
