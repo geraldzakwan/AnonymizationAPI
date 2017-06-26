@@ -56,6 +56,50 @@ def anonymize_message(post_processed_list, anonymization_type):
     else:
         print 'to be defined'
 
+    return post_processed_list
+
+def remove_space_before_char(string_message, char):
+    count = 0
+    substring_list = []
+    while(string_message.find(char) != -1):
+        found_index = string_message.find(char)
+
+        if(found_index - 1 > -1 and found_index < len(string_message)):
+            if(string_message[found_index - 1] == ' '):
+                substring_list.append(string_message[:found_index - 1] + char)
+                string_message = string_message[found_index + 1:]
+                if(len(string_message) > 0 and string_message.find(char) == -1):
+                    substring_list.append(string_message)
+                    count = count + 1
+                count = count + 1
+            else:
+                substring_list.append(string_message[:found_index] + char)
+                string_message = string_message[found_index + 1:]
+                if(len(string_message) > 0 and string_message.find(char) == -1):
+                    substring_list.append(string_message)
+                    count = count + 1
+                count = count + 1
+
+    if(count == 0):
+        return string_message
+    else:
+        # print("SUBBBS")
+        tidy_message = ""
+        for substring in substring_list:
+            tidy_message = tidy_message + substring
+            # print(substring)
+
+        return tidy_message
+
+def remove_space_before_punctuation(string_message):
+    string_message = remove_space_before_char(string_message, '.')
+    string_message = remove_space_before_char(string_message, ',')
+    string_message = remove_space_before_char(string_message, '?')
+    string_message = remove_space_before_char(string_message, '-')
+
+    return string_message
+
+def restructure_sentences(post_processed_list):
     anonymized_message = ""
 
     for element in post_processed_list:
@@ -63,6 +107,7 @@ def anonymize_message(post_processed_list, anonymization_type):
         anonymized_message = anonymized_message + phrase + " "
 
     anonymized_message = anonymized_message[:-1]
+    anonymized_message = remove_space_before_punctuation(anonymized_message)
 
     return anonymized_message
 

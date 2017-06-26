@@ -23,7 +23,8 @@ if __name__ == "__main__":
         # print(post_processed_list)
 
         anonymized_message = anonymization.anonymize_message(post_processed_list, 'general')
-        print(anonymized_message)
+        restructured_message = anonymization.restructure_sentences(anonymized_message)
+        print(restructured_message)
 
     elif(sys.argv[1] == 'perceptron'):
         if(sys.argv[2] == 'load'):
@@ -44,4 +45,5 @@ if __name__ == "__main__":
         # print(post_processed_list)
 
         anonymized_message = anonymization.anonymize_message(post_processed_list, 'general')
-        print(anonymized_message)
+        restructured_message = anonymization.restructure_sentences(anonymized_message)
+        print(restructured_message)
