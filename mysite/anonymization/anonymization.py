@@ -11,18 +11,40 @@ def anonymize_message(post_processed_list, anonymization_type):
         count_person = 0;
         count_organization = 0;
         count_gpe = 0;
+        count_geo = 0;
+        count_tim = 0;
+        count_art = 0;
+        count_event = 0;
 
         while(i < list_len):
-            if(post_processed_list[i][1] != 'None'):
-                if(post_processed_list[i][1] == 'PERSON'):
+            if(post_processed_list[i][1] != 'O'):
+                if(post_processed_list[i][1] == 'per'):
                     count_person = count_person + 1
                     post_processed_list[i][0] = 'PERSON' + '-' + str(count_person)
-                elif(post_processed_list[i][1] == 'ORGANIZATION'):
+
+                elif(post_processed_list[i][1] == 'org'):
                     count_organization = count_organization + 1
                     post_processed_list[i][0] = 'ORG' + '-' + str(count_organization)
-                elif(post_processed_list[i][1] == 'GPE'):
+
+                elif(post_processed_list[i][1] == 'gpe'):
                     count_gpe = count_gpe + 1
                     post_processed_list[i][0] = 'GPE' + '-' + str(count_gpe)
+
+                elif(post_processed_list[i][1] == 'geo'):
+                    count_geo = count_geo + 1
+                    post_processed_list[i][0] = 'GEO' + '-' + str(count_geo)
+
+                elif(post_processed_list[i][1] == 'tim'):
+                    count_tim = count_tim + 1
+                    post_processed_list[i][0] = 'TIME' + '-' + str(count_tim)
+
+                elif(post_processed_list[i][1] == 'art'):
+                    count_art = count_art + 1
+                    post_processed_list[i][0] = 'ART' + '-' + str(count_art)
+
+                elif(post_processed_list[i][1] == 'eve'):
+                    count_event = count_event + 1
+                    post_processed_list[i][0] = 'EVENT' + '-' + str(count_event)
 
             i = i + 1
 

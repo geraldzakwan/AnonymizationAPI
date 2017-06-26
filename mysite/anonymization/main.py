@@ -20,8 +20,10 @@ if __name__ == "__main__":
         corrected_list = post_processing.class_correction(result)
         restructured_list = post_processing.restructure_list(corrected_list)
         post_processed_list = post_processing.coreference_resolution(restructured_list)
+        # print(post_processed_list)
 
-        print(post_processed_list)
+        anonymized_message = anonymization.anonymize_message(post_processed_list, 'general')
+        print(anonymized_message)
 
     elif(sys.argv[1] == 'perceptron'):
         if(sys.argv[2] == 'load'):
@@ -39,5 +41,7 @@ if __name__ == "__main__":
         corrected_list = post_processing.class_correction(result)
         restructured_list = post_processing.restructure_list(corrected_list)
         post_processed_list = post_processing.coreference_resolution(restructured_list)
+        # print(post_processed_list)
 
-        print(post_processed_list)
+        anonymized_message = anonymization.anonymize_message(post_processed_list, 'general')
+        print(anonymized_message)

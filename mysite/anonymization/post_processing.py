@@ -28,7 +28,7 @@ def restructure_list(corrected_list):
 
         elif (chunk_type == tuple):
             # This isn't named entity
-            restructured_list.append([chunk[0], 'None'])
+            restructured_list.append([chunk[0], 'O'])
 
         # Debugging
         # for elements in chunks:
@@ -49,7 +49,7 @@ def coreference_resolution(restructured_list):
         element = restructured_list[i]
         element_class = element[1]
 
-        if (element_class != 'None'):
+        if (element_class != 'O'):
             element_word = element[0]
 
             # The word occurs before
