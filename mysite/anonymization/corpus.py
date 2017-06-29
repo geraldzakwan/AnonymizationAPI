@@ -111,7 +111,11 @@ def read_corpus_ner(corpus_root, mode):
                         # ret_list.append(tuple_to_be_inserted)
 
                         # This is to use generator
-                        yield conlltags2tree(conll_tokens)
+                        print('-------------------')
+                        for item in conlltags2tree(conll_tokens):
+                            print(item)
+                        print('-------------------')
+                        # yield conlltags2tree(conll_tokens)
 
                         # Debugging
                         it = it + 1
@@ -122,3 +126,4 @@ def read_corpus_ner(corpus_root, mode):
 
 if __name__ == "__main__":
     print('Corpus module')
+    read_corpus_ner('gmb-2.2.0', '--core')
