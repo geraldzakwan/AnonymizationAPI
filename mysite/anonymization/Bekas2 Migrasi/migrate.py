@@ -12,7 +12,7 @@ db = MySQLdb.connect(
                     )
 
 comma = ", "
-quote = "'"
+quote = '"'
 cur = db.cursor()
 
 def remove_quote(word):
@@ -72,31 +72,34 @@ def migrate_gmb_corpus():
                         standard_form_tokens = []
 
                         for idx, annotated_token in enumerate(annotated_tokens):
-                            # Split annotations, annotations are separated with a tab character
-                            annotations = annotated_token.split('\t')
+                            # # Split annotations, annotations are separated with a tab character
+                            # annotations = annotated_token.split('\t')
+                            #
+                            # # The 1st annotation is the word itself, the 2nd is pos_tag, and the 3rd is it's named entity
+                            # word, pos_tag, ner = annotations[0], annotations[1], annotations[3]
+                            #
+                            # # Get only the primary category
+                            # if ner != 'O':
+                            #     ner = ner.split('-')[0]
+                            #
+                            # standard_form_tokens.append((word, pos_tag, ner))
 
-                            # The 1st annotation is the word itself, the 2nd is pos_tag, and the 3rd is it's named entity
-                            word, pos_tag, ner = annotations[0], annotations[1], annotations[3]
-
-                            # Get only the primary category
-                            if ner != 'O':
-                                ner = ner.split('-')[0]
-
-                            standard_form_tokens.append((word, pos_tag, ner))
-
-                            word = remove_quote(word)
-                            query = "INSERT INTO ner_annotated_corpus (word, pos_tag, named_entity) VALUES (" + quote + word + quote + comma + quote + pos_tag + quote + comma + quote + ner + quote + ")";
-                            # print(query)
-                            # cur.execute(query)
+                            # word = remove_quote(word)
+                            # if(word.find("'") != -1):
+                            #     query = "INSERT INTO ner_annotated_corpus (word, pos_tag, named_entity) VALUES (" + quote + word + quote + comma + quote + pos_tag + quote + comma + quote + ner + quote + ");";
+                            #     query_error_list.append(query)
+                            # query = "INSERT INTO ner_annotated_corpus (word, pos_tag, named_entity) VALUES (" + quote + word + quote + comma + quote + pos_tag + quote + comma + quote + ner + quote + ")";
+                            # # print(query)
+                            # # cur.execute(query)
                             it = it + 1
-                            try:
-                                cur.execute(query)
-                                db.commit()
-                            except:
-                                query_error_list.append(query)
-                                db.rollback()
+                            # try:
+                            #     cur.execute(query)
+                            #     db.commit()
+                            # except:
+                            #     query_error_list.append(query)
+                            #     db.rollback()
 
-                        conll_tokens = to_conll_iob(standard_form_tokens)
+                        # conll_tokens = to_conll_iob(standard_form_tokens)
 
                         # Debugging
                         # it = it + 1
@@ -107,7 +110,7 @@ def migrate_gmb_corpus():
                         # print('-------------------')
 
     # db.commit()
-    # db.close()
+    db.close()
     return query_error_list
 
 if __name__ == "__main__":
@@ -119,6 +122,13 @@ if __name__ == "__main__":
         print(query_error_list)
         print('--------------')
 
+    print('Cannot be printed to ext file')
+    print('--------------')
+    print('--------------')
+    print('--------------')
     thefile = open('query_error_list.txt', 'w')
     for item in query_error_list:
-        thefile.write("%s\n" % item)
+        try:
+            thefile.write("%s\n" % item)
+        except:
+            print(item)
