@@ -111,11 +111,11 @@ def read_corpus_ner(corpus_root, mode):
                         # ret_list.append(tuple_to_be_inserted)
 
                         # This is to use generator
-                        print('-------------------')
-                        for item in conlltags2tree(conll_tokens):
-                            print(item)
-                        print('-------------------')
-                        # yield conlltags2tree(conll_tokens)
+                        # print('-------------------')
+                        # for item in conlltags2tree(conll_tokens):
+                        #     print(item)
+                        # print('-------------------')
+                        yield conlltags2tree(conll_tokens)
 
                         # Debugging
                         it = it + 1

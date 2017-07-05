@@ -10,7 +10,7 @@ from nltk.chunk import conlltags2tree, tree2conlltags
 from sklearn.externals import joblib
 from sklearn.naive_bayes import MultinomialNB
 
-batch_size_per_iter = 250
+batch_size_per_iter = 1000
 
 class NamedEntityChunker(ChunkParserI):
 
