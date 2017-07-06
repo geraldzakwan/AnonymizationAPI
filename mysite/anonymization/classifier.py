@@ -19,7 +19,7 @@ mode = '--core'
 
 # Generator result
 reader = corpus.read_corpus_ner(corpus_root, mode)
-batch_size_per_iter = 250
+batch_size_per_iter = 1000
 
 def train_perceptron(sample, filename):
     all_classes = ['O', 'B-per', 'I-per', 'B-gpe', 'I-gpe',
