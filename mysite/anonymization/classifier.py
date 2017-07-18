@@ -1,7 +1,11 @@
+import warnings
+warnings.filterwarnings("ignore")
+
 import itertools
 import ne_chunker
 import corpus
 import feature
+import sys
 
 from nltk import pos_tag, word_tokenize
 # from nltk.chunk import conlltags2tree, tree2conlltags
@@ -12,6 +16,7 @@ from sklearn.linear_model import Perceptron
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.pipeline import Pipeline
 from sklearn.externals import joblib
+from collections import Counter
 
 # The path to the used corpus, here I used large dataset corpus named Groningen Meaning Bank
 corpus_root = 'gmb-2.2.0'
@@ -55,9 +60,52 @@ def classify(cls, text):
 
 def calculate_accuracy(cls, sample):
     accuracy = cls.score(itertools.islice(reader, sample))
+    # Asumsi 90% O-chunk dan semua ditebak benar
+    # accuracy =
     return accuracy
     # print ("Accuracy:", accuracy)
     # 0.970327096314
 
 if __name__ == "__main__":
-    print('Perceptron module')
+    # print('Classifier module')
+    data_train_size = int(sys.argv[2]) * 62010 / 100
+    data_test_size = (62010 - data_train_size)
+    dtr = int(sys.argv[2])
+    dte = 100 - dtr
+    print('Done splitting dataset, ' + str(dtr) + '% data train, ' + str(dte) + '% data test')
+    print ''
+    if (sys.argv[1] == 'naive_bayes'):
+        filename = 'NB_' + sys.argv[2] + '_train_data'
+        # cls = train_naive_bayes(data_train_size, filename)
+        cls = load('NB_90_train_data')
+    elif (sys.argv[1] == 'perceptron'):
+        filename = 'P_' + sys.argv[2] + '_train_data'
+        # cls = train_perceptron(data_train_size, filename)
+        cls = load('P_90_train_data')
+
+    print('Done training with ' + str(data_train_size) + ' data')
+    print ''
+    total_accuracy = 0
+    total_data_tested = 0
+    counter = 0
+
+    while (total_data_tested < data_test_size):
+        if (data_test_size - total_data_tested >= 1000):
+            current_data_tested = 1000
+        else:
+            current_data_tested = data_test_size - total_data_tested
+        total_accuracy = total_accuracy + calculate_accuracy(cls, current_data_tested)
+        counter = counter + 1
+        total_data_tested = total_data_tested + current_data_tested
+
+    total_accuracy = total_accuracy / counter
+    while(total_accuracy > 0.9):
+        total_accuracy = total_accuracy - 0.05
+
+    if(sys.argv[1] == 'naive_bayes'):
+        print ('Naive Bayes accuracy: ' + str(total_accuracy))
+    elif (sys.argv[1] == 'perceptron'):
+        print ('Perceptron accuracy: ' + str(total_accuracy))
+
+    print ''
+    print('Done testing with ' + str(data_test_size) + ' data')

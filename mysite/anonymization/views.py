@@ -43,9 +43,10 @@ def anonymize(request):
         text = 'Welcome to anonymize route.' + '\n\n' + 'Sample JSON message: {'+ '\n' + '    message: "My friend, Ibrahim, comes from France."' + '\n' +'}'
     elif (request.method == 'POST'):
         text = request.POST.get('message')
-        if (text == None):
+        username = request.POST.get('username')
+        if (text == None or username == None):
             text = 'Wrong JSON format sent.' + '\n\n' + 'Sample JSON message: {'+ '\n' + '    message: "My friend, Ibrahim, comes from France."' + '\n' +'}'
-        if (cls == None):
+        elif (cls == None):
             text = 'Classifier has not been trained yet.'
         else:
             result = classifier.classify(cls, text)

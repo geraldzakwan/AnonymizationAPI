@@ -119,7 +119,7 @@ def read_corpus_ner(corpus_root, mode):
 
                         # Debugging
                         it = it + 1
-                        print(it)
+                        # print(it)
 
     # This is to return list
     # return ret_list
