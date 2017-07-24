@@ -1,0 +1,57 @@
+---
+Cannot check accuracy for big dataset (success for 1000, failed for 5000)
+It will cause memory error
+
+---
+NER tagging is not accurate :
+
+# NOTES
+# Alternative : Detect all nouns, manually tag the named entity
+
+e.g. : Manchester United considered as PERSON (NOW is solved)
+
+Current solution : Training GMB corpus dataset
+
+
+---
+Do some post post processing
+Setelah di run, ada beberapa kesalahan, contohnya :
+
+word 'and' kan CC, harusnya mah nggak jadi organization
+jadi kalo dia tag-nya CC, jadiin 'O/outside'
+
+
+
+---
+Person replacement : Kalo mau niat, cowo di replace cewe dan sebaliknya
+
+---
+Small bugs, space included. But it's OK too. Kalo pake yang chunker sendiri yang main_ner_2.py
+e.g. :
+['Cristiano Ronaldo ', 'PERSON']
+['is', None]
+['', 'None']
+['a', None]
+['', 'None']
+['decent', None]
+
+---
+Perlu pake IOB format dan NP chunking ngk? Keknya gausah kalo udh diproses, mungkin rapihin ntar
+
+
+--- DONE pake opsi dua
+---
+Space ngk cukup buat GMB
+
+Either :
+
+1. Cari cara buat gedein space di ubuntu
+2. Ambil file en.tags doang
+
+--- DONE
+---
+there are trees with more than one node (NP-chunked)
+
+need to handle
+
+e.g. : Tree('ORGANIZATION', [('Real', 'NNP'), ('Madrid', 'NNP')])
