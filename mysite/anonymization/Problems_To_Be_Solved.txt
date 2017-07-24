@@ -1,0 +1,38 @@
+- Nentuin threshold untuk co-occurence metrics, pake range aja (MINGGU INI HARUS KELAR). Ini susah karena google apinya terbatas.
+- Ambil aja 0,01 - 0,03
+- GAMBAR ULANG SKEMA, SATUIN DAN RAPIHIN SEMUA PROGRAM (MINGGU TERAKHIR)
+- Satuin ke API (MINGGU TERAKHIR)
+- Laporan, presentasi, analysis (MINGGU TERAKHIR)
+- Improve accuracy ner, gausah gak sempet (opsional)
+- OPSIONAL (Co-reference resolution). Contoh : My sister's name is Anna. Anna lives in Chicago. Harusnya dua2 anna ke anonymize dan Anna lives in Chicago ke detect jadi private phrase.
+
+- Identifikasi private locational && organizational phrase dan temporal phrase (waktu) pake rule based approach (MINGGU INI HARUS KELAR)
+- PERSON GIMANA (MINGGU INI HARUS KELAR). IDE CURANG : Masukin ke genderize.io, kalo keluar None bukan person wkwk
+- RULE BUAT PERSON SAMA ORGANIZATION PIKIRIN
+- COREFERENCE RESOLUTION PROJECT SEBELUMNYA COPAS KE YG BARU
+- Postprocessing, preprocessing dari yang project sebelumnya kalo mau dipake (MINGGU INI HARUS KELAR)
+
+Bug :
+Count bisa 0 di sentence_similarity, jadinya float division by zero
+
+DONE :
+
+- Ngukur distance antara anonymized text sama original text (MINGGU INI HARUS KELAR) (UDAH)
+- Normalizing text/spelling check & correction (DONE).
+- Perlu kasi pos tag info ke lemmatizer (DONE).
+
+- Anonymization pake generalization mesti gimana, kemaren dicoba di wordnet gabisa (DONE untuk LOCATION)
+
+- Buat PERSON kalo bisa ganti nama sesuai gender (cewe ganti cewe, cowo ganti cowo)
+- Pake https://genderize.io/, nanti bikin dataset simple (26 nama, A-Z buat ngegantinya)
+
+- BUAT ORGANIZATION sementara ngk kepikir, langsung anonymize aja
+- BUAT TIME pake general/supression kaya di paper, keknya lebih gampang surpression
+
+Masalah :
+
+- POS TAG NYA HARUS NGIKUT ABIS DI PREDICT DAMN
+- KEKNYA HARUSNYA STEM AMA LEMMATIZED DI AWAL
+
+- Kemungkinan solusi : Tetep sebelum, catet index iob, ganti lagi
+- Kadang lemma motong kata basic juga, jadi ngaco

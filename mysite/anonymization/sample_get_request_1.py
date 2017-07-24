@@ -1,0 +1,9 @@
+http://www.google.com/search?
+  start=0
+  &num=10
+  &q=red+sox
+  &cr=countryCA
+  &lr=lang_fr
+  &client=google-csbe
+  &output=xml_no_dtd
+  &cx=013692161269702497108:vgnkfyixhmo

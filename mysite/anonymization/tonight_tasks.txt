@@ -1,0 +1,42 @@
+- Harusnya bisa ganti semua yang sama. Contoh
+I have a brother named Mike . Mike loves to play football .
+Jadi:
+I have a brother named Aiden . Mike loves to play football .
+Padahal Mike kedua harusnya diganti Aiden.
+
+- Pake https://genderize.io/ buat person named entity GG DONE
+TAPI MENDING NGK USAH DIPAKE KEKNYA, TOKYO AJA JADI PER
+
+- Nanti bikin dataset simple (52 nama, A-Z masing-masing 2 buat ngegantinya) DONE
+
+- Gausa abjad awal sama deng, harusnya lebih ke jumlah kata sama, bikin nama 1-3 kata DONE
+
+- Kalo ngk,bikin first_name sama last_name di database. Kalo replacement 1 word nama pake first_name,
+kalo lebih combine first_name dan last_name dua2nya random. DONE
+
+- Buat anonymization location, pake yang setipe satu general DONE
+
+- Buat anonymization organization, sesuain ama laporan, simple. DONE
+'Kasi phrasenya jg harusnya wkwk'
+
+- Tambah rule yang time, target minimal 8 DONE, kecuali mau disempurnain
+
+- Anonymization time, generalnya dipikirin DONE, kecuali mau disempurnain
+
+- Kalo dia entity yang namanya sama, replacenya juga sama (sedikit co-reference resolution) DONE
+
+- Bug ngk ada titik, I-nya kelewatan overflow SUSAH INI BANYAK KASUSNYA. Oh gampang si, tambah titik ae di belakang. DONE
+
+- Yang event sama gpe gan belom HAHA DONE TAPI BELOM DITEST BELOM SEMPURNA.
+
+- SATUIN KE API
+
+- Yang google co-occurence metrics buat nge detect noun (pake noun chunking selain yang udah
+  di rule based approach)
+
+- Google co-occurence metrics pastiin besok bikin KEY BARU, register email baru
+
+Further improvement on names(ngk mungkin sekarang):
+- Gantinya gimana ya apa nama pertama aja? Ato dua2 diganti
+- Database nama multilevel 1 kata, 2 kata, 3 kata, dst
+- Nama sesuai negara (kalo ada informasi negara)

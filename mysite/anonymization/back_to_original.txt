@@ -1,0 +1,26 @@
+- BUG TITIK GAN, kalo NGK ADA TITIK, CHUNKINGNYA NGACO
+
+- Ini buat balikin jadi original text dari yg udah di normalized
+
+  original text di stem lagi, taro stemnya di tuple
+  iterasi, kalo stemnya sama print yg normal
+  kalo beda print yang di ner_prediction yang udah di anonymize
+  nextnya kalo masih beda, iterate terus itu kan artinya ada named entity hasil combine chunking
+
+- PERSON PAKE GENDERIZE AJA, GG
+
+mysql> select * from non_private_personal_verbs;
++-------+
+| word  |
++-------+
+| like  |
+| meet  |
+| see   |
+| know  |
+| think |
++-------+
+5 rows in set (0,00 sec)
+
+Keknya mesti diapus yang meet ama see
+
+To sum up, I want to give two conclusions, one is about the research substance and the other one is about the industrial practice at National Institute of Technology, Gifu College (NIT-GC). There are currently not many anonymization research focusing on raw text. Thus, I hope that this research could be extended furthermore in the future in term of improving performance by applying other methods and also in term of domains/areas. I hope that I can also create similar researchs for other domains, such as for raw company or government documents. Overall, the industrial practice at NIT-GC is both challenging and fun. It’s challenging because the supervisor always gives you feedbacks and urges you to improve your work. Meanwhile, it’s fun because it’s Japan and all the students in the lab are very nice and helpful. They will invite you to play games and to eat at some delicious Japanese restaurants. They will also take you to some beautiful cities in Japan, such as Kyoto, Osaka, and Nagoya in the free time (weekend).

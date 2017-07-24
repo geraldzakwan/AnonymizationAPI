@@ -1,5 +1,0 @@
-179 180 buku -> similarty, posttag
-
-http://nlpforhackers.io/named-entity-extraction/
-
-http://nlpforhackers.io/training-pos-tagger/
